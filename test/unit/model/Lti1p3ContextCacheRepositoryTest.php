@@ -26,6 +26,7 @@ use oat\ltiDeliveryProvider\model\execution\implementation\Lti1p3ContextCacheRep
 use oat\oatbox\cache\CacheItem;
 use oat\taoDelivery\model\execution\DeliveryExecutionInterface;
 use oat\taoLti\models\classes\LtiLaunchData;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;
@@ -33,6 +34,9 @@ use Psr\Cache\CacheItemPoolInterface;
 class Lti1p3ContextCacheRepositoryTest extends TestCase
 {
     private Lti1p3ContextCacheRepository $subject;
+    private CacheItemPoolInterface|MockObject $storage;
+    private LtiLaunchData $launchDataObject;
+    private MockObject|DeliveryExecutionInterface $deliveryExecution;
 
     public function setUp(): void
     {
