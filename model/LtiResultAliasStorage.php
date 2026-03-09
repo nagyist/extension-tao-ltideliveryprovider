@@ -104,7 +104,7 @@ class LtiResultAliasStorage extends ConfigurableService implements DeliveryExecu
         $queryBuilder->where('t.' . self::RESULT_ID . '=?');
         $queryBuilder->setParameters([$aliasId]);
         $stmt = $this->persistence->query($queryBuilder->getSQL(), $queryBuilder->getParameters());
-        $data = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $data = $stmt->fetchAssociative();
         return isset($data[self::DELIVERY_EXECUTION_ID])
             ? $data[self::DELIVERY_EXECUTION_ID]
             : $aliasId;
