@@ -97,7 +97,7 @@ class LtiResultAliasStorageTest extends TestCase
         $storage = new LtiResultAliasStorage([
             LtiResultAliasStorage::OPTION_PERSISTENCE => 'test_LtiResultIdStorageTest'
         ]);
-        $config = new \common_persistence_KeyValuePersistence([], new \common_persistence_InMemoryKvDriver());
+        $config = new \common_persistence_KeyValuePersistence(new \common_persistence_InMemoryKvDriver(), []);
         $config->set(\common_persistence_Manager::SERVICE_ID, $persistenceManager);
         $serviceManager = new ServiceManager($config);
         $storage->setServiceManager($serviceManager);
